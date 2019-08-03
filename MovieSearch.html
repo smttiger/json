@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Search</title>
+</head>
+<style>
+    body {
+        background: bisque;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    div {
+        text-align: center;
+        border: 1px solid black;
+        width: 500px;
+        margin: auto;
+    }
+</style>
+<body>
+<h1>Search:</h1>
+<div>
+    <label>Search:<input type="text" id="film"> </label><br><br>
+    <label>Type:<select>
+        <option value="movie">Movie</option>
+        <option value="series">Series</option>
+        <option value="episode">Episode</option>
+    </select></label><br><br>
+    <button id="go">Search</button>
+</div>
+<script>
+    var btn = document.getElementById("go");
+    var f=document.getElementById("film");
+    btn.onclick = function () {
+        var request = new XMLHttpRequest();
+        const url = "http://www.omdbapi.com/?apikey=a6e6005f&t=" + f.value;
+        request.open('GET', url, false);
+        request.send();
+        alert(request.responseText);
+
+    }
+</script>
+
+</body>
+</html>
